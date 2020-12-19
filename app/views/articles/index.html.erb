@@ -1,0 +1,14 @@
+<!-- This is definitely not complete -->
+
+  <% @articles.each do |article| %>
+    <li> <% if task.completed  %>
+             <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+             <% else %>
+             <input type="checkbox" class="form-check-input" id="exampleCheck1">
+             <% end %>
+      <%= link_to task.title, task_path(task) %>  <%= link_to(task_path(task), method: :delete, data: { confirm: "Are you sure?" }) do%>
+   <i class="fas fa-trash"></i>
+<% end %> </li>
+  <% end %>
+</ul>
+<p><%= link_to "Add a new task", new_task_path %></p>
